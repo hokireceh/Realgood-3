@@ -1,0 +1,20 @@
+# Secrets and local state — never commit these.
+.env
+.env.*
+!.env.example
+data/
+data-test-*/
+node_modules/
+dist/
+*.log
+*.wtns
+# Binary circuit artifacts are fetched at startup (see src/artifacts.ts),
+# never committed — the GitHub connector used to publish this repo cannot
+# push binary files. The *.vk.json files ARE committed (plain JSON text).
+circuits/*.wasm
+circuits/*_final.zkey
+
+# Vercel CLI project link (project/org ids — local only).
+.vercel/
+.vercel
+.env*

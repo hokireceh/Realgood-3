@@ -1,0 +1,37 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "builds": [
+    {
+      "src": "api/agent.ts",
+      "use": "@vercel/node",
+      "config": {
+        "maxDuration": 60
+      }
+    },
+    {
+      "src": "api/health.ts",
+      "use": "@vercel/node",
+      "config": {
+        "maxDuration": 30
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/agent",
+      "dest": "/api/agent.ts"
+    },
+    {
+      "src": "/health",
+      "dest": "/api/health.ts"
+    },
+    {
+      "src": "/api/agent",
+      "dest": "/api/agent.ts"
+    },
+    {
+      "src": "/api/health",
+      "dest": "/api/health.ts"
+    }
+  ]
+}

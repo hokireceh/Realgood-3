@@ -1,0 +1,36 @@
+{
+  "author": "",
+  "dependencies": {
+    "circomlibjs": "^0.1.7",
+    "dotenv": "^18.0.10",
+    "ethers": "^6.17.0",
+    "snarkjs": "^0.7.5"
+  },
+  "description": "Realgood-3 — ZK-proof-guarded agent for value transfers (Agent Games, 3rd agent, Vercel). Proof Gatekeeper + Steal the VFY.",
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.7.15",
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "zkverify",
+    "agent-games",
+    "groth16",
+    "snarkjs",
+    "kurier"
+  ],
+  "license": "MIT",
+  "name": "realgood-3",
+  "scripts": {
+    "build": "tsc && cp src/*.vk.json dist/",
+    "dev": "tsx src/server-main.ts",
+    "start": "node dist/server-main.js",
+    "test": "npm run build && tsx test/harness.ts && tsx test/steal-harness.ts",
+    "test:watch": "tsx --watch test/harness.ts",
+    "test:steal": "npm run build && tsx test/steal-harness.ts",
+    "steal-commitment": "tsx scripts/steal-commitment.ts",
+    "fetch-circuits": "tsx src/artifacts.ts"
+  },
+  "version": "1.0.0"
+}
